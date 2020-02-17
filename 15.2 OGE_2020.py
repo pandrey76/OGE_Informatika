@@ -1,6 +1,6 @@
 # Creating universal realization of task 15.2
 
-is_must_present_value = True
+is_must_present_value = False
 
 title_count_of_values = "Введите количество введённых значений:"
 title_of_values = "Введите следующее число:"
@@ -39,13 +39,6 @@ def gettingInputValue(title_str, min_count, max_count):
                     return num
 
 
-def isCorrectValue(int_val, ):
-    if int_val % 4 == 0:
-        return True
-    else:
-        return False
-
-
 def constructValueList():
     count = gettingInputValue(title_count_of_values, min_count_value, max_count_value)
     i = 0
@@ -72,17 +65,27 @@ def constructValueList():
     return result_value_list
 
 
-def resultPrint(result_list):
+def isCorrectValue(int_val, ):
+    if int_val % 4 == 0:
+        return True
+    else:
+        return False
+
+
+def gettingResult1(result_list):
     max_value = 0
     for val in result_list:
         if isCorrectValue(val):
             if max_value < val:
                 max_value = val
-
-    if max_value == 0:
-        print("Ни одно введённое число не было кратно 4.")
-    else:
-        print("Максимальное введённое число кратное 4: ", max_value)
+    return max_value
 
 
-resultPrint(constructValueList())
+# def gettingResult2(result_list):
+#     pass
+
+
+list_of_entering_value = constructValueList()
+print(gettingResult1(list_of_entering_value))
+
+# print(gettingResult2(list_of_entering_value))
