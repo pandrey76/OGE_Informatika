@@ -1,15 +1,15 @@
 # Creating universal realization of task 15.2
 
-is_must_present_value = False
+is_must_present_value = True
 
 title_count_of_values = "Введите количество введённых значений:"
 title_of_values = "Введите следующее число:"
 
 min_count_value = 0
-max_count_value = 1000
+max_count_value = 51
 
-min_enter_value = 0
-max_enter_value = 30000
+min_enter_value = -1
+max_enter_value = 21
 
 
 def gettingInputValue(title_str, min_count, max_count):
@@ -66,26 +66,43 @@ def constructValueList():
 
 
 def isCorrectValue(int_val, ):
-    if int_val % 4 == 0:
+    if int_val >= 1:
         return True
     else:
         return False
 
 
 def gettingResult1(result_list):
-    max_value = 0
+    value = 0
     for val in result_list:
         if isCorrectValue(val):
-            if max_value < val:
-                max_value = val
-    return max_value
+            if value < val:
+                value = val
+            
+    return value
 
 
-# def gettingResult2(result_list):
-#     pass
+def gettingResult2(result_list):
+    value = 0
+    for val in result_list:
+        if val == 0:
+            return 'YES'
+    return 'NO'
+            
 
 
 list_of_entering_value = constructValueList()
 print(gettingResult1(list_of_entering_value))
 
-# print(gettingResult2(list_of_entering_value))
+print(gettingResult2(list_of_entering_value))
+
+
+# Min_value
+#   min_value = max_enter_value
+#    for val in result_list:
+#        if isCorrectValue(val):
+#            if val < min_value:
+#                min_value = val
+#    if min_value == max_enter_value:
+#        min_value = 0
+#    return min_value
